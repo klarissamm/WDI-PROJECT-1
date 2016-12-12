@@ -3,6 +3,18 @@ $(function(){
   var $squares = $('li');
   var randomPerson;
   var $random;
+  var count = 10;
+  var timer;
+  var imagesInterval;
+  var score = 0;
+  var scale;
+  var arrayNumber;
+  var level = 1;
+  var intervalSpeed = 2000;
+
+  $('.countdown').html(count);
+
+  // var score;
   // var points = 0;
   // var timerInterval = 0;
   // var squaresArray = [];
@@ -11,38 +23,87 @@ $(function(){
 
   var objects = [
     { name: 'drake',
-      image: ('http://fillmurray.com/200/200'),
-      speed: 2000,
+      image: ('http://www.technobuffalo.com/wp-content/uploads/2016/04/set_drake_hotling_bling_video-640-200x200.jpg'),
+      speed: 1000,
       points: 1
     },
     { name: 'taylor',
-      image: ('http://placehold.it/200x200'),
-      speed: 2000,
+      image: ('https://s-media-cache-ak0.pinimg.com/236x/b3/e7/ba/b3e7babe1d81c2d006de00d7e07dc4d1.jpg'),
+      speed: 1000,
       points: 2
     },
     { name: 'rihanna',
-      image: ('http://lorempixel.com/200/200/sports/Dummy-Text/'),
-      speed: 2000,
+      image: ('https://vg-images.condecdn.net/image/NNPLx6AejnV/crop/200/square/top'),
+      speed: 1000,
       points: -2
-    },
-    { name: 'bonus',
-      image: ('http://lorempixel.com/200/200/'),
-      speed: 2000,
-      points: 10
     }
   ];
+    // { name: 'bonus',
+    //   image: ('https://media4.giphy.com/media/3o7WTKIeUbhbDNnS5W/200_s.gif'),
+    //   speed: 500,
+    //   points: 10
+    // }
 
 
+
+  function beginGame() {
+    $('button').on('click', function() {
+      timer = setInterval(countdownTimer, 1000);
+      imagesInterval = setInterval(go, intervalSpeed);
+    });
+  }
+
+  beginGame();
+
+
+  function countdownTimer() {
+    $('.countdown').each(function() {
+      count = parseInt($(this).html());
+      if (count !== 0) {
+        $(this).html(count - 1);
+      } else if (count <=0 ) {
+        clearInterval(timer);
+      }
+    });
+  }
 
   function go() {
     $random = $($squares[Math.floor(Math.random() * $squares.length)]);
-    randomPerson = objects[Math.floor(Math.random() * objects.length)];
+    scale = Math.floor(Math.random() * 10);
+    if (scale < 5) {
+      arrayNumber = 0;
+    } else if (scale < 7) {
+      arrayNumber = 1;
+    } else {
+      arrayNumber = 2;
+    }
+    randomPerson = objects[parseInt(arrayNumber)];
     $($random).css('background-image', 'url(' + randomPerson.image + ')');
     flash($random);
-
+    if (count <= 2) {
+      clearInterval(imagesInterval);
+      $('.scoreboard').html('');
+      if (score >= 3) {
+        $('.winner').fadeIn('fast');
+        $('.winner').html('Well done! You got enough points to get to the next level!');
+        level =+ 1;
+        nextLevel(level);
+      } else if (score < 3) {
+        $('.winner').fadeIn('fast');
+        $('.winner').html('You failed... try again!');
+        // reset
+      }
+    }
   }
 
-  go();
+  function nextLevel(holder) {
+    if (level === holder) {
+      intervalSpeed -= 1000;
+      count = 20;
+      score = 0;
+      beginGame();
+    }
+  }
 
 
   function flash(argument) {
@@ -53,9 +114,10 @@ $(function(){
   }
 
   function eventListener(placeholder) {
-    placeholder.on('click', function() {
-      if (placeholder.css('background-image', 'none')!== true) {
-        console.log(randomPerson.points);
+    placeholder.one('click', function() {
+      if (placeholder.css('background-image') !==  'none') {
+        console.log(placeholder.css('background-image') !== 'none');
+        $('.scoreboard').html(score += randomPerson.points);
       }
     });
 
@@ -97,19 +159,6 @@ $(function(){
   // }
   //
   // randomCell();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
