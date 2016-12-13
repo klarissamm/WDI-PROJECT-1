@@ -3,7 +3,7 @@ $(function() {
   var $squares = $('li');
   var randomObject;
   var $random;
-  var count = 10;
+  var count = 20;
   var timer;
   var imagesInterval;
   var score = 0;
@@ -15,6 +15,7 @@ $(function() {
   $('.countdown').html(count);
 
   function begin() {
+    new Audio('http://peal.io/download/ahutc').play();
     $('.instructions').hide();
     $('.winner').hide();
     $('.shader').hide();
@@ -40,12 +41,11 @@ $(function() {
         clearInterval(timer);
         clearInterval(imagesInterval);
 
-        if (score >= 3) {
+        if (score >= 5) {
           $('.winner').fadeIn('fast');
           $('.winner p').html('Nice one mate!');
           $('.winner button').html('Next level');
           level += 1;
-          new Audio('./audio/uhhuh.mp3').play();
           nextLevel();
         } else {
           $('.winner').fadeIn('fast');
@@ -61,9 +61,9 @@ $(function() {
   function go() {
     $random = $($squares[Math.floor(Math.random() * $squares.length)]);
     scale = Math.floor(Math.random() * 10);
-    if (scale < 4) {
+    if (scale < 5) {
       arrayNumber = 0;
-    } else if (scale < 7) {
+    } else if (scale < 8) {
       arrayNumber = 1;
     } else if (scale < 10) {
       arrayNumber = 2;
@@ -88,13 +88,14 @@ $(function() {
         var tomato = document.createElement('img');
         tomato.setAttribute('src', 'images/tomato.png');
         $(this).append(tomato);
+        new Audio('./audio/Dart.mp3').play();
         $('.scoreboard').html(score += randomObject.points);
       }
     });
   }
 
   function reset() {
-    count = 10;
+    count = 20;
     level = 1;
     $('.countdown').html(count);
     timer = '';
@@ -107,20 +108,24 @@ $(function() {
   function nextLevel() {
     console.log('Now the level is', level);
     if (level === 2) {
+      new Audio('./audio/uhhuh.mp3').play();
       score = 0;
       $('.scoreboard').html('');
       intervalSpeed -= 500;
       objects.speed -= 500;
-      count = 20;
+      count = 10;
       $('.countdown').html(count);
       $('button').show();
     } else if (level === 3) {
       score = 0;
       $('.scoreboard').html('');
       intervalSpeed -= 400;
-      objects.speed -= 1000;
-      count = 30;
+      objects.speed = 20;
+      count = 10;
       $('.countdown').html(count);
+      $('.winner p').html('FINISHED!');
+      $('button').hide();
+      new Audio('http://peal.io/download/5ypcq').play();
       console.log(intervalSpeed);
     }
   }
