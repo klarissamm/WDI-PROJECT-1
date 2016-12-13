@@ -3,18 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>Game project</title>
-  <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="js/app.js" charset="utf-8"></script>
 </head>
 <body>
-  <h1>Squash Taylor! <br> Glitter Drake! <br> But Save Rihanna</h1>
+  <h1> Squash 'Em! </h1>
+  <div class="instructions">
+    <p1><span>LEVEL 1</span> 10 points in 30 seconds </p1><br>
+    <p2><span>LEVEL 2</span> 10 points in 20 seconds </p2><br>
+    <p3><span>LEVEL 3 </span> 10 points in 10 seconds </p3><br>
+  <div id="tay">2 POINTS</div>
+  <img id="tayimg" src="./images/tay.png" alt="Tay">
+
+  <div id="drake">1 POINT</div>
+  <img id="drakeimg" src="http://i.imgur.com/tvQxI6h.png" alt="Drake">
+
+  <div id="rih"> -2 POINTS</div>
+  <img id="rihimg" src="./images/rih.png" alt="Rih">
+  <button type="button" id="button">Begin Game</button>
+  </div>
   <div class="Level">
   </div>
   <div class="countdown"></div>
-  <button type="button" id="button">Start</button>
   <div class="scoreboard">0</div>
   <br>
   <div class="winner"></div>

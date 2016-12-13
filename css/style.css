@@ -1,12 +1,102 @@
 body {
-background: url(images/bg.jpg) no-repeat center center fixed;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
+background-image: url('../images/pink_rice.png');
 background-size: cover;
-background: pink;
-font-family: 'Bungee', cursive;
 text-align: center;
+}
+
+h1 {
+  margin: 15px;
+  text-align: center;
+  font-size: 60px;
+  color: #E91E63;
+  font-family: 'Bungee', cursive;
+}
+
+.instructions {
+  background-color: #CCB3B3;
+  color: #f1e3e3;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  width: 800px;
+  height: 500px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 20px;
+}
+
+.instructions > h2 {
+    font-weight: 400;
+}
+
+.instructions > p1, p2, p3 {
+  padding: 20px;
+  margin: 20px;
+  font-size: 35px;
+  line-height: 70px;
+}
+
+span {
+  color: #E91E63;
+  font-size: 45px;
+  padding: 40px;
+  font-family: 'Bungee', cursive;
+}
+
+#tayimg {
+  position: absolute;
+  bottom: 75px;
+  left: 50px;
+}
+
+#rihimg {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  index: -1;
+}
+
+#drakeimg {
+  position: absolute;
+  bottom: 50px;
+  left: 260px;
+}
+
+#rih {
+  position: absolute;
+  bottom: 25px;
+  right: 70px;
+  index: 5;
+  font-size: 25px;
+}
+
+#drake {
+  position: absolute;
+  bottom: 25px;
+  right: 350px;
+  index: 5;
+  font-size: 25px;
+}
+
+#tay {
+  position: absolute;
+  bottom: 25px;
+  left: 70px;
+  index: 5;
+  font-size: 25px;
+}
+
+button {
+  padding: 10px;
+  font-size: 15px;
+  position: absolute;
+  bottom: -10px;
+  left: 340px;
+  background-color: #f1e3e3;
+  color:#E91E63;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  border-radius: 20px;
 }
 
 ul.grid {
@@ -16,6 +106,7 @@ ul.grid {
   padding: 0;
   width: 600px;
   height: 600px;
+  border-radius: 20px;
 }
 
 li {
@@ -69,11 +160,4 @@ list-style-type: none;
   border: 1px solid purple;
   background-color: red;
   display: none
-}
-
-img {
-  /*visibility: hidden;*/
-  /*display: none;*/
-  z-index: 1;
-
 }
