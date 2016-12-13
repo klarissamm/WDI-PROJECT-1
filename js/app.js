@@ -15,14 +15,18 @@ $(function() {
   $('.countdown').html(count);
 
   function begin() {
+    $('.instructions').hide();
+    $('.winner').hide();
+    $('.shader').hide();
     // Initially hide start button
-    $(this).hide();
+    // $(this).hide();
     timer = setInterval(countdownTimer, 1000);
     imagesInterval = setInterval(go, intervalSpeed);
   }
 
   function init() {
-    $('button').on('click', begin);
+    $('#button').on('click', begin);
+    $('.winner #again').on('click', begin);
   }
 
   init();
@@ -38,12 +42,16 @@ $(function() {
 
         if (score >= 3) {
           $('.winner').fadeIn('fast');
-          $('.winner').html('Well done! Next Level!');
+          $('.winner p').html('Nice one mate!');
+          $('.winner button').html('Next level');
           level += 1;
+          new Audio('./audio/uhhuh.mp3').play();
           nextLevel();
         } else {
           $('.winner').fadeIn('fast');
-          $('.winner').html('Booooo Try again');
+          $('.winner p').html('Loser! Try again');
+          $('.winner button').html('Try again');
+          new Audio('./audio/haha.mp3').play();
           reset();
         }
       }
@@ -73,22 +81,6 @@ $(function() {
     eventListener($random);
   }
 
-  // function eventListener(placeholder) {
-  //   placeholder.one('click', function() {
-  //     if (placeholder.css('background-image') !== 'none') {
-  //       if (placeholder.css('background-image') === 'url("http://i.imgur.com/tvQxI6h.png")'); {
-  //         var tomato = document.createElement('img');
-  //         tomato.setAttribute('src', 'images/tomato.png');
-  //         $(this).append(tomato);
-  //       } else {
-  //         placeholder.css('background-image', 'none')
-  //       }
-  //         $('.scoreboard').html(score += randomObject.points);
-  //       }
-  //     }
-  //   });
-  // }
-
 
   function eventListener(placeholder) {
     placeholder.one('click', function() {
@@ -110,7 +102,6 @@ $(function() {
     score = 0;
     $('.scoreboard').html('');
     intervalSpeed = 2000;
-    $('button').show();
   }
 
   function nextLevel() {
@@ -131,7 +122,6 @@ $(function() {
       count = 30;
       $('.countdown').html(count);
       console.log(intervalSpeed);
-      $('button').show();
     }
   }
 
