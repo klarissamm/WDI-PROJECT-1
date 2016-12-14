@@ -19,8 +19,6 @@ $(function() {
     $('.instructions').hide();
     $('.winner').hide();
     $('.shader').hide();
-    // Initially hide start button
-    // $(this).hide();
     timer = setInterval(countdownTimer, 1000);
     imagesInterval = setInterval(go, intervalSpeed);
   }
