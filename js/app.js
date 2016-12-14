@@ -106,7 +106,6 @@ $(function() {
   }
 
   function nextLevel() {
-    console.log('Now the level is', level);
     if (level === 2) {
       new Audio('./audio/uhhuh.mp3').play();
       score = 0;
@@ -124,9 +123,9 @@ $(function() {
       count = 10;
       $('.countdown').html(count);
       $('.winner p').html('FINISHED!');
-      $('button').hide();
+      $('.winner button').show();
+      $('.winner button').html('Play again?');
       new Audio('http://peal.io/download/5ypcq').play();
-      console.log(intervalSpeed);
     }
   }
 
