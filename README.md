@@ -2,6 +2,9 @@
 
 **A Whack-A-Mole-style Game by Klarissa Munz**
 
+
+See it here: [Squash 'Em](https://quiet-ocean-43961.herokuapp.com/)
+
 ![image](http://i.imgur.com/KHtQ61L.jpg)
 ![image](http://i.imgur.com/38tHNJp.jpg)
 
