@@ -1,6 +1,6 @@
 ##SQUASH 'EM GAME with Drake, Taylor and Rihanna
 
-**A Whack-A-Mole-style Game by Klarissa Munz**
+**A Whack-A-Mole-style Game by Klarissa M**
 
 
 See it here: [Squash 'Em](https://quiet-ocean-43961.herokuapp.com/)
